@@ -25,6 +25,52 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      drawer: Drawer(
+        child: ListView(
+          // ignore: prefer_const_literals_to_create_immutables
+          children: [
+            const UserAccountsDrawerHeader(
+              accountName: Text("Natã Pacheco"),
+              accountEmail: Text("natan-98@hotmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.black,
+                child: Text("N-P"),
+              ),
+            ),
+            ListTile(
+              title: const Text("Página 1"),
+              trailing: const Icon(Icons.arrow_forward),
+              onTap: () {
+                setState(() {
+                  _pageController.jumpToPage(0);
+                  Navigator.pop(context);
+                  indexBottomNavigation = 0;
+                });
+              },
+            ),
+            ListTile(
+                title: const Text("Página 2"),
+                trailing: const Icon(Icons.arrow_forward),
+                onTap: () {
+                  setState(() {
+                    _pageController.jumpToPage(1);
+                    Navigator.pop(context);
+                    indexBottomNavigation = 1;
+                  });
+                }),
+            ListTile(
+                title: const Text("Página 3"),
+                trailing: const Icon(Icons.arrow_forward),
+                onTap: () {
+                  setState(() {
+                    _pageController.jumpToPage(2);
+                    Navigator.pop(context);
+                    indexBottomNavigation = 2;
+                  });
+                })
+          ],
+        ),
+      ),
       body: PageView(
         controller: _pageController,
         children: [
